@@ -2,6 +2,7 @@ package com.epam.preproduction.pages;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import com.epam.preproduction.components.CompareBlock;
+import com.epam.preproduction.entities.Item;
 import com.epam.preproduction.entities.Microwave;
 
 public class ItemPage extends Page {
@@ -38,7 +40,6 @@ public class ItemPage extends Page {
 		return microwave;
 	}
 
-	
 	public void checkParameters() {
 		getDriver().findElement(By.xpath(MainPage.FIRST_ITEM)).click();
 		getDriver().findElement(By.xpath(MainPage.COMPARE)).click();
@@ -97,36 +98,6 @@ public class ItemPage extends Page {
 
 	private void refreshLocators() {
 		PageFactory.initElements(getDriver(), CataloguePage.class);
-	}
-
-	public void gerUrls(List<String> catalogueLinks) {
-		List<String> urlList = new ArrayList<String>();
-		List<String> itemNames = new ArrayList<String>();
-		for (int i = 1; i < 6; i++) {
-			List<WebElement> names = getDriver().findElements(By.xpath("//div[@class='item'][" + i + "]/div/a"));
-	
-			for (WebElement webElement : names) {
-				String hrefs = webElement.getAttribute("href");
-				catalogueLinks.add(hrefs);
-				//itemNames.add(webElement.getTagName());
-			}
-			getDriver().findElement(By.xpath("//div[@class='item'][" + i + "]/div/a")).click();
-			PageFactory.initElements(getDriver(), ItemPage.class);
-			urlList.add(i-1, getDriver().getCurrentUrl());
-			getDriver().navigate().back();
-			refreshLocators();
-			//Assert.assertEquals(catalogueLinks, urlList);
-			// go to price page
-			getDriver().findElement(By.xpath("//div[@class='links-bar']/div[@class='link']/a")).click();
-
-			
-			
-//			itemNames.add(getDriver().findElement(By.xpath("//div[@class='item'][" + i + "]/div/a")).getText());
-//			getDriver().findElement(By.id("edit-name-1")).sendKeys(itemNames.get(i-1));
-//			getDriver().findElement(By.id("edit-submit-1")).click();
-		}
-		System.out.println(catalogueLinks);
-		System.out.println(urlList);
 	}
 
 }

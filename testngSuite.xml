@@ -3,10 +3,10 @@
 <suite name="Suite 1">
 	<test name="testNG test1">
 		<classes>
-<!-- 				<class name="com.epam.preproduction.tests.SortTest" /> -->
-					<class name="com.epam.preproduction.tests.MicrowavesTest" />
+	<class name="com.epam.preproduction.tests.SortingTest" />
+<!-- 				<class name="com.epam.preproduction.tests.MicrowavesTest" /> -->
 <!-- 				<class name="com.epam.preproduction.tests.WashingMachinesTest" /> -->
-<!-- 				<class name="com.epam.preproduction.tests.AirConditionerTest" /> -->
+<!-- 					<class name="com.epam.preproduction.tests.AirConditionerTest" /> -->
 <!-- 				<class name="com.epam.preproduction.tests.BreadMakerTest" /> -->
 		</classes>
 	</test>

@@ -11,6 +11,7 @@ import com.epam.preproduction.configuration.DataProviderLayer;
 import com.epam.preproduction.entities.AirConditioner;
 import com.epam.preproduction.pages.CataloguePage;
 import com.epam.preproduction.pages.ItemPage;
+import com.epam.preproduction.pages.PricePage;
 
 public class AirConditionerTest extends TestBase {
 
@@ -24,13 +25,11 @@ public class AirConditionerTest extends TestBase {
 		CataloguePage cataloguePage = PageFactory.initElements(driver,
 				CataloguePage.class);
 		AirConditioner airConditioner = new AirConditioner();
-		ItemPage itemPage = new ItemPage(driver);
-
-		// String url = driver.getCurrentUrl();
-
-		List<String> data = new ArrayList<String>();
-		itemPage.gerUrls(data);
+		PricePage pricePage = new PricePage(driver);
+		pricePage.verifyItemLinksAreEqual();
 
 	}
+
+
 
 }
